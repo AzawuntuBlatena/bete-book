@@ -1,0 +1,60 @@
+@import './variables.css';
+
+:root {
+  --color-btn-border: black;
+
+  /* primary button  */
+  --color-primary-btn-background-color: hsl(var(--color-base-hue) 100% 83%);
+  --color-primary-btn-text-color: hsl(var(--color-base-hue) 100% 20%);
+  --color-primary-btn-hover-background-color: hsl(var(--color-base-hue) 100% 70%);
+  --color-primary-btn-hover-text-color: hsl(var(--color-base-hue) 100% 10%);
+ 
+  /* danger button  */
+  --color-danger-btn-background-color: hsl(var(--color-danger-hue) 100% 83%);
+  --color-danger-btn-hover-background-color: hsl(var(--color-danger-hue) 100% 73%);
+  --color-danger-btn-hover-text-color: black;
+  --color-danger-btn-text-color: black;
+  
+}
+
+.btn {
+  border: 1px solid var(--color-btn-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-family: "Gotham Rounded";
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-btn-background-color);
+  color: var(--color-primary-btn-text-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-btn-hover-background-color);
+  color: var(--color-primary-btn-hover-text-color);
+}
+
+.btn-danger {
+  background-color: var(--color-danger-btn-background-color);
+  color: var(--color-danger-btn-text-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-btn-hover-background-color);
+  color: var(--color-danger-btn-hover-text-color);
+}
+
+.btn-row{
+    display: flex;
+    align-items: flex-start;
+}
+.btn-row > *{
+    margin-left: 1rem;
+}
+.btn-row > *:first-child{
+    margin-left: 0;
+}
