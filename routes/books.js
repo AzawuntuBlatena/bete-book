@@ -87,7 +87,6 @@ router.get("/:id/edit", async (req, res) => {
 //Updating book route
 router.put("/:id", async (req, res) => {
     let book
-    console.log("0.")
     try {
         book = await Book.findById(req.params.id)
         book.title= req.body.title

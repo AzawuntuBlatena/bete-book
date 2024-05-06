@@ -2,6 +2,8 @@
 
 <form action="/authors" method="post">
     <%- include('_form_fields') %>
-    <a class="btn btn-primary" href="/authors">cancel</a>
-    <button type="submit" class="btn btn-primary">create</button>
+    <div class="btn-row form-row form-row-end">
+        <a class="btn btn-danger" href="/authors">cancel</a>
+        <button type="submit" class="btn btn-primary">create</button>
+    </div>
 </form>
