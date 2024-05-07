@@ -7,7 +7,6 @@
 .book-cover {
 width: var(--book-cover-width);
 height: calc(var(--book-cover-width)/var(--book-cover-aspect-ratio));
-object-fit: cover;
 }
 
 .book-cover-large {
