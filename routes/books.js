@@ -10,7 +10,7 @@ const imageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
 
 router.get("/", async (req, res) => {
   try {
-    let query = Book.find();
+    let query = Book.find().sort({createdAt: 'desc'});
     if (req.query.title != null && req.query.title != "") {
       query = query.regex("title", new RegExp(req.query.title, "i"));
     }
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
       query = query.gte("publishDate", req.query.publishAfter);
     }
 
-    const books = await query.exec();
+    const books = await query.exec()
     res.render("books/index", {
       books: books,
       searchOption: req.query,
@@ -47,15 +47,15 @@ router.post("/", async (req, res) => {
     publishDate: new Date(req.body.publishDate),
     pageCount: req.body.pageCount,
     description: req.body.description,
-  });
+  })
 
   saveCover(book, req.body.cover);
   try {
-    const newBook = await book.save();
+    const newBook = await book.save()
     res.redirect(`/books/${newBook.id}`)
    
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     renderNewPage(res, book, true);
   }
 });
@@ -132,6 +132,7 @@ async function renderNewPage(res, book, hasError = false) {
 async function renderEditPage(res, book, hasError = false) {
   renderFormPage(res, book, "edit", hasError);
 }
+
 async function renderFormPage(res, book, form, hasError) {
   try {
     const authors = await Author.find({});
@@ -152,6 +153,7 @@ async function renderFormPage(res, book, form, hasError) {
 function saveCover(book, coverEncoded) {
   if (coverEncoded == null) return;
   const cover = JSON.parse(coverEncoded);
+  // console.log('creating..')
   if (cover != null && imageMimeTypes.includes(cover.type)) {
     book.coverImage = new Buffer.from(cover.data, "base64");
     book.coverImageType = cover.type;

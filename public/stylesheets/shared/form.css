@@ -1,5 +1,5 @@
 :root {
-    --form-lable-font-size: 1.2rem;
+    --form-label-font-size: 1.2rem;
     --form-input-background-color: hsl(var(--color-base-hue) 100% 31%) ;
     --form-input-border-color: hsl(var(--color-base-hue) 100% 50%) ;
     --form-input-border-color-focus: hsl(var(--color-base-hue) 100% 80%) ;
@@ -31,7 +31,7 @@
 }
 
 .form-item > label{
-    font-size: var(--font-lable-font-size);
+    font-size: var(--form-label-font-size);
     margin-bottom: .25rem;
     margin-left: .25rem;
 }
@@ -47,6 +47,10 @@
     font-weight: normal;
     font-family: "Gotham Rounded";
     outline: none;
+}
+
+.form-item select option{
+    background-color: black;
 }
 
 .form-item textarea{
